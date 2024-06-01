@@ -416,6 +416,7 @@ public abstract class AbstractNioChannel extends AbstractChannel {
 
         final int interestOps = selectionKey.interestOps();
         if ((interestOps & readInterestOp) == 0) {
+            logger.info("interest ops: " + readInterestOp);
             selectionKey.interestOps(interestOps | readInterestOp);
         }
     }
